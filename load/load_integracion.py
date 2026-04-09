@@ -13,5 +13,5 @@ class VentanaIntegracion(QtWidgets.QDialog):
         x = float(self.lineEdit_x.text())
 
         integracion = Integracion(dof, x)
-        resultado = integracion.integrar() 
-        self.label_resultado.setText(str(resultado))
+        resultado = integracion.integrar(x, dof) 
+        self.label_resultado.setText(str(resultado*2))
