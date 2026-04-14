@@ -38,7 +38,7 @@ class CasoPrueba4():
     def RealizarCalculo(self):
 
         self.B1 = self.B1_num/self.B1_denom
-        self.B0 = self.yavg - self.B1
+        self.B0 = self.yavg - self.B1 * self.xavg
         self.rxy = self.r_num/np.sqrt(self.r_denom)
         self.r2 = self.rxy*self.rxy
         self.Yk = self.B0+self.B1*self.xk
