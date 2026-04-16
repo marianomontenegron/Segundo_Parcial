@@ -9,9 +9,17 @@ class VentanaIntegracion(QtWidgets.QDialog):
         self.botonCalcular.clicked.connect(self.botonCalcularClick)
 
     def botonCalcularClick(self):
-        dof = int(self.lineEdit_dof.text())
-        x = float(self.lineEdit_x.text())
+        try:
+            x = float(self.lineEdit_x.text())
+            dof = int(self.lineEdit_dof.text())
+        except ValueError:
+            self.label_resultado.setText("Error")
+            return
+
+        if dof < 1:
+            self.label_resultado.setText("dof debe de ser ≥ 1")
+            return
 
         integracion = Integracion(dof, x)
-        resultado = integracion.integrar(x, dof) 
-        self.label_resultado.setText(str(resultado*2))
+        resultado = integracion.integrar(x, dof)
+        self.label_resultado.setText(str(resultado))
